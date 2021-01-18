@@ -17,7 +17,7 @@ https://cosasdedevs.com/posts/manejar-el-gestor-de-dependencias-pip-y-el-entorno
 
 ## Execution:
 
-In cmd:
+open cmd:
 
 ```bash
 $ python wpp_project/main.py
