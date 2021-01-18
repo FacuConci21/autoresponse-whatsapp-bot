@@ -94,7 +94,6 @@ def process_response(message):
 
 def message_checker():
     global x, y
-    # pt.moveTo(x + 50, y - 35, duration=.5)
 
     while True:
         if get_position('wpp_project\img\green_point1.png'):
@@ -104,14 +103,6 @@ def message_checker():
             processed_message = process_response(get_message())
             post_response(processed_message)
 
-            # if pt.pixelMatchesColor(int(x), int(y), (255, 255, 255), tolerance=10):
-            #     print('is_white')
-
-            # press_send_button_routine()
-
-        # elsbeep! boo! soy un bot y segun mis calculos hay un 99.9999% de probabilidades de que esta noche te rompan el ojt porque sos un tolazo SAPEEEEEe:
-        #     print('no messages yet')
-
         print('Sleepen for 5 seconds')
         sleep(5)
 
@@ -119,16 +110,3 @@ def message_checker():
 x = 0
 y = 0
 message_checker()
-press_send_button_routine()
-'''
-if get_position('wpp_project\img\green_point1.png') or get_position(
-            'wpp_project\img\wpp_logo.png'):
-        message_checker()
-        
-        sleep(3)
-
-    else:
-        print('no coords')
-        sleep(5)
-        continue
-'''
