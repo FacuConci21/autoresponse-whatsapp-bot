@@ -9,7 +9,6 @@ sleep(5)
 def copy_message_routine():
     global x, y
 
-    get_position('wpp_project\img\smile_paperclip.png')
     pt.moveTo(x, y, duration=.05)
     pt.moveTo(x + 40, y - 40, duration=.5)
     pt.tripleClick()
@@ -25,6 +24,26 @@ def paste_message_routine(message):
     pt.click()
 
     pt.typewrite(message)
+
+    pt.typewrite('\n')
+
+
+def open_chat_routine():
+    global x, y
+
+    pt.moveTo(x, y)
+    pt.moveRel(-100, 0)
+    pt.click()
+
+
+def press_send_button_routine():
+    global x, y
+
+    get_position('wpp_project\img\send_button.png')
+
+    pt.moveTo(x + 20, y + 20, duration=.5)
+
+    pt.click()
 
 
 def get_position(path):
@@ -64,12 +83,52 @@ def post_response(message):
     paste_message_routine(message)
 
 
-while True:
-    if get_position('wpp_project\img\smile_paperclip.png'):
-        post_response(get_message())
+def process_response(message):
+
+    if '?' in str(message).lower():
+        return 'beep! boop! soy un bot y vengo a responderte'
+
+    else:
+        return 'beep! boop! soy un bot y segun mis calculos hay un 99.9999% de probabilidades de que esta noche te rompan el ojt porque sos un tolazo SAPEEEEE'
+
+
+def message_checker():
+    global x, y
+    # pt.moveTo(x + 50, y - 35, duration=.5)
+
+    while True:
+        if get_position('wpp_project\img\green_point1.png'):
+
+            open_chat_routine()
+
+            processed_message = process_response(get_message())
+            post_response(processed_message)
+
+            # if pt.pixelMatchesColor(int(x), int(y), (255, 255, 255), tolerance=10):
+            #     print('is_white')
+
+            # press_send_button_routine()
+
+        # elsbeep! boo! soy un bot y segun mis calculos hay un 99.9999% de probabilidades de que esta noche te rompan el ojt porque sos un tolazo SAPEEEEEe:
+        #     print('no messages yet')
+
+        print('Sleepen for 5 seconds')
+        sleep(5)
+
+
+x = 0
+y = 0
+message_checker()
+press_send_button_routine()
+'''
+if get_position('wpp_project\img\green_point1.png') or get_position(
+            'wpp_project\img\wpp_logo.png'):
+        message_checker()
+        
         sleep(3)
 
     else:
         print('no coords')
         sleep(5)
         continue
+'''
